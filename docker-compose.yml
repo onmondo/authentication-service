@@ -1,0 +1,29 @@
+version: '3'
+services:
+  route-server:
+    restart: always
+    build: 
+      context: .
+      dockerfile: ./dockerfiles/router.Dockerfile
+    ports:
+      - '3002:80'
+  redis-server:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/redis.Dockerfile
+  auth-service:
+    build: 
+      context: .
+      dockerfile: ./dockerfiles/auth.Dockerfile
+  # auth-staging-service:
+  #   build: 
+  #     context: .
+  #     dockerfile: ./dockerfiles/auth.staging.Dockerfile    
+  # auth-test-service:
+  #   build: 
+  #     context: .
+  #     dockerfile: ./dockerfiles/auth.test.Dockerfile
+  sms-service:
+    build: 
+      context: .
+      dockerfile: ./dockerfiles/sms.Dockerfile    
