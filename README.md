@@ -28,3 +28,8 @@
 ```mocha ./__test__ --recursive```
 ### Alternatively you can run test with the source file
 ```mocha './services/**/*.test.js'```
+
+## Possible improvements
+- make redis connection more robust
+- make redis connection pool that can handle multiple request (1M request)
+- change lib for request to other alternative http request lib (axios)
