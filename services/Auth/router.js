@@ -5,7 +5,8 @@ const blockUser = require('./routes/blockUser');
 const generateOTP = require('./routes/generateOTP');
 const resendOTP = require('./routes/resendOTP');
 const verifyOTP = require('./routes/verifyOTP');
-const sendSMS = require('./routes/sendSMS');
+// const sendSMS = require('./routes/sendSMS'); --> property of Globe Telecom
+const computeResponse = require('../../common/route');
 
 const {generateOTPValidation, verifyOTPValidation} = require('./validationSchema');
 
@@ -19,10 +20,12 @@ const {
 Router.post('/generate', 
   validateRequest(generateOTPValidation), assignID, blockUser(true), generateOTP, 
   // sendSMS --> property of Globe Telecom
+  computeResponse
 );
 Router.post('/resend', 
   validateRequest(generateOTPValidation), assignID, blockUser(true), resendOTP, generateOTP, 
   // sendSMS --> property of Globe Telecom
+  computeResponse
 );
 Router.post('/verify', validateRequest(verifyOTPValidation), assignID, blockUser(false), verifyOTP, signToken);
 Router.post('/protect', assignID, verifyAccessToken);
