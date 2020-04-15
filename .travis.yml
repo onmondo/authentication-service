@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+# before_install:
+
+# script:
+
+after_success:
+  - docker build -t jmonblando/auth-service ./dockerfiles/auth.Dockerfile
+  - docker build -t jmonblando/router-service ./dockerfiles/router.Dockerfile
+  - docker build -t jmonblando/sms-service ./dockerfiles/sms.Dockerfile
+  - docker build -t jmonblando/redis-server ./dockerfiles/redis.Dockerfile
+
+  # Log in to docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Take those images and push them to docker hub
+  - docker push jmonblando/auth-service
+  - docker push jmonblando/router-service
+  - docker push jmonblando/sms-service
+  - docker push jmonblando/redis-server
