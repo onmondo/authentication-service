@@ -8,16 +8,16 @@ before_install:
 script:
 
 after_success:
-  - docker build -t jmonblando/auth-service ./dockerfiles/auth.Dockerfile
-  - docker build -t jmonblando/router-service ./dockerfiles/router.Dockerfile
-  - docker build -t jmonblando/sms-service ./dockerfiles/sms.Dockerfile
-  - docker build -t jmonblando/redis-server ./dockerfiles/redis.Dockerfile
+  - docker build -t jrblando/auth-service ./dockerfiles/auth.Dockerfile
+  - docker build -t jrblando/router-service ./dockerfiles/router.Dockerfile
+  - docker build -t jrblando/sms-service ./dockerfiles/sms.Dockerfile
+  - docker build -t jrblando/redis-server ./dockerfiles/redis.Dockerfile
 
   # Log in to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take those images and push them to docker hub
-  - docker push jmonblando/auth-service
-  - docker push jmonblando/router-service
-  - docker push jmonblando/sms-service
-  - docker push jmonblando/redis-server
+  - docker push jrblando/auth-service
+  - docker push jrblando/router-service
+  - docker push jrblando/sms-service
+  - docker push jrblando/redis-server
