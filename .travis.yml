@@ -2,9 +2,9 @@ sudo: required
 services:
   - docker
 
-# before_install:
+before_install:
 
-# script:
+script:
 
 after_success:
   - docker build -t jmonblando/auth-service ./dockerfiles/auth.Dockerfile
