@@ -17,7 +17,7 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take those images and push them to docker hub
-  - docker push jrblando/auth-service
-  - docker push jrblando/router-service
-  - docker push jrblando/sms-service
-  - docker push jrblando/redis-server
+  - docker push jrblando/authentication-service:jrblando/auth-service
+  - docker push jrblando/authentication-service:jrblando/router-service
+  - docker push jrblando/authentication-service:jrblando/sms-service
+  - docker push jrblando/authentication-service:jrblando/redis-server
