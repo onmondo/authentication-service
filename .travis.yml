@@ -8,16 +8,16 @@ before_install:
 script:
 
 after_success:
-  - docker build -t jrblando/authentication-service:auth-service -f ./dockerfiles/auth.Dockerfile .
-  - docker build -t jrblando/authentication-service:router-service -f ./dockerfiles/router.Dockerfile .
-  - docker build -t jrblando/authentication-service:sms-service -f ./dockerfiles/sms.Dockerfile .
-  - docker build -t jrblando/authentication-service:redis-server -f ./dockerfiles/redis.Dockerfile .
+  - docker build -t jrblando/authentication-service:latest -f ./dockerfiles/auth.Dockerfile .
+  - docker build -t jrblando/nginx-router:latest -f ./dockerfiles/router.Dockerfile .
+  - docker build -t jrblando/vendor-sms-service:latest -f ./dockerfiles/sms.Dockerfile .
+  - docker build -t jrblando/custom-redis-server:latest -f ./dockerfiles/redis.Dockerfile .
 
   # Log in to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 
   # Take those images and push them to docker hub
-  - docker push jrblando/authentication-service:auth-service
-  - docker push jrblando/authentication-service:router-service
-  - docker push jrblando/authentication-service:sms-service
-  - docker push jrblando/authentication-service:redis-server
+  - docker push jrblando/authentication-service:latest
+  - docker push jrblando/nginx-router:latest
+  - docker push jrblando/vendor-sms-service:latest
+  - docker push jrblando/custom-redis-server:latest
