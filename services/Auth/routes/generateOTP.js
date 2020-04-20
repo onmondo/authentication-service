@@ -1,12 +1,12 @@
 const isEmpty = require('lodash/isEmpty');
 const randomize = require('randomatic');
 const morgan = require('morgan');
-const dbClient = require('../../../utils/dbConnection');
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const dbClient = require('@utils/dbConnection');
+const catchAsyncError = require('@utils/catchAsyncError');
 const {setKeyAndExpire, getKey, getTTL} = require('../methods');
 // const {postRequest} = require('../../../utils/sendRequest');
 const otpExpire = process.env.OTP_EXPIRE;
-const ServiceError = require('../../../utils/ServiceError');
+const ServiceError = require('@utils/ServiceError');
 
 const generateOTP = catchAsyncError(async (req, _res, next) => {
 

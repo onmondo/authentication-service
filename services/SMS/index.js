@@ -1,7 +1,8 @@
+require('module-alias/register');
 const express = require('express');
 
-const errorHandler = require('../../common/errorHandler');
-const ServiceError = require('../../utils/ServiceError');
+const errorHandler = require('@common/errorHandler');
+const ServiceError = require('@utils/ServiceError');
 
 const app = express();
 app.use(express.json());

@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const {promisify} = require('util');
 const morgan = require('morgan');
-const SignTokenOption = require('../../../utils/SignTokenOption');
-const ServiceError = require('../../../utils/ServiceError');
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const SignTokenOption = require('@utils/SignTokenOption');
+const ServiceError = require('@utils/ServiceError');
+const catchAsyncError = require('@utils/catchAsyncError');
 
 const PRIVATE_KEY = process.env.JWT_PRIVATE_KEY;
 const PUBLIC_KEY = process.env.JWT_PUBLIC_KEY;

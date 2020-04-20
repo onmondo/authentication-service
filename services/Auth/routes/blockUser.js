@@ -1,8 +1,8 @@
 const isEmpty = require('lodash/isEmpty');
 const morgan = require('morgan');
-const catchAsyncError = require('../../../utils/catchAsyncError');
-const ServiceError = require('../../../utils/ServiceError')
-const dbClient = require('../../../utils/dbConnection');
+const catchAsyncError = require('@utils/catchAsyncError');
+const ServiceError = require('@utils/ServiceError')
+const dbClient = require('@utils/dbConnection');
 const {getKey, deleteKeys, getTTL} = require('../methods');
 
 const blockUser = (reset) => {

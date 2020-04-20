@@ -1,7 +1,6 @@
 const isEmpty = require('lodash/isEmpty');
-// const request = require('requestretry');
 const morgan = require('morgan');
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const catchAsyncError = require('@utils/catchAsyncError');
 const {postRequest} = require('../methods');
 const {request} = require('http');
 const sendSMS = catchAsyncError(async (req, res, _next) => {
