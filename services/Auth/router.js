@@ -6,7 +6,7 @@ const generateOTP = require('./routes/generateOTP');
 const resendOTP = require('./routes/resendOTP');
 const verifyOTP = require('./routes/verifyOTP');
 // const sendSMS = require('./routes/sendSMS'); --> property of Globe Telecom
-const computeResponse = require('../../common/route');
+const computeResponse = require('@common/route');
 
 const {generateOTPValidation, verifyOTPValidation} = require('./validationSchema');
 

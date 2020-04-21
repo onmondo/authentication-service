@@ -1,11 +1,13 @@
+require('module-alias/register');
 const express = require('express');
 const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const uuid = require('uuid');
 
-const errorHandler = require('../../common/errorHandler');
-const ServiceError = require('../../utils/ServiceError');
+// const errorHandler = require('../../common/errorHandler');
+const errorHandler = require('@common/errorHandler');
+const ServiceError = require('@utils/ServiceError');
 const logDirectory = process.env.LOGS_DIR;
 
 const app = express();
