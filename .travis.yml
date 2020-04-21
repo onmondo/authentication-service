@@ -2,6 +2,11 @@ sudo: required
 language: node_js
 services:
   - docker
+branches:
+  only:
+  - master
+  - staging
+  - develop
 
 before_install:
 
