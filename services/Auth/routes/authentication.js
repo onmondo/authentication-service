@@ -46,7 +46,7 @@ const signToken = catchAsyncError(async(req, res, _next) => {
       access_token: accessToken,
       refresh_token: refreshToken
     },
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });
 });
 
@@ -112,7 +112,7 @@ const verifyAccessToken = catchAsyncError(async (req, res, next) => {
     status: 'success',
     error: 0,
     data: {decodedAccess},
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });  
 });
 

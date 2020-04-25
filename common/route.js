@@ -1,11 +1,12 @@
 const catchAsyncError = require('../utils/catchAsyncError');
 
 const computeResponse = catchAsyncError(async (req, res) => {
-  return res.status(200).json({
+  return res.status(req.body.statusCode).json({
     success: true,
     status: 'success',
     error: 0,
-    owner_link: req.originalUrl
+    data: req.body,
+    self: req.originalUrl
   });
 });
 

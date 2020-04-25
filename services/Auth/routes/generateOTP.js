@@ -52,7 +52,7 @@ const generateOTP = catchAsyncError(async (req, _res, next) => {
   }
 
   // modify request body to the next api
-  req.body = {...req.body, expire: timeRemaining, otp: `${otp}`};
+  req.body = {...req.body, expire: timeRemaining, otp: `${otp}`, statusCode: 201};
 
   return next();
 });

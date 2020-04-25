@@ -14,6 +14,6 @@ module.exports = (err, req, res, _next) => {
     error: {...err, errorCode},
     message: err.message,
     stack: err.stack,
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });
 };

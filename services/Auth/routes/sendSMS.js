@@ -41,7 +41,7 @@ const sendSMS = catchAsyncError(async (req, res, _next) => {
     status: 'success',
     error: 0,
     data: responseData,
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });
 });
 
