@@ -1,7 +1,10 @@
 const catchAsyncError = require('../utils/catchAsyncError');
 
 const computeResponse = catchAsyncError(async (req, res) => {
-  return res.status(req.body.statusCode).json({
+  const code = req.body.statusCode;
+  delete req.body.statusCode;
+
+  return res.status(code).json({
     success: true,
     status: 'success',
     error: 0,
