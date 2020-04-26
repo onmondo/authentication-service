@@ -18,6 +18,6 @@ COPY ./__test__/. ./__test__/.
 COPY ./common/. ./common/.
 COPY ./services/Auth/. ./services/Auth/.
 COPY ./utils/. ./utils/.
-COPY ./config/.config.auth.env ./config.env
+COPY ./env/.config.auth.env ./config.env
 
 CMD ["yarn", "run", "test:auth"]
