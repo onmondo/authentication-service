@@ -1,0 +1,30 @@
+sudo: required
+language: node_js
+services:
+  - docker
+  - git
+branches:
+  only:
+  - master
+  - staging
+  - develop
+
+before_install:
+
+script:
+  - printf "APP_ID=$APP_ID\nAPP_SECRET=$APP_SECRET\nAUTH_PORT=$AUTH_PORT\nBASE_URL=$BASE_URL\nCODE=$CODE\nDATABASE_HOST=$DATABASE_HOST\nDATABASE_PASS=$DATABASE_PASS\nDATABASE_PORT=$DATABASE_PORT\nENV=$ENV\nJWT_ACCESS_EXPIRES_IN=$JWT_ACCESS_EXPIRES_IN\nJWT_ACCESS_ISSUER=$JWT_ACCESS_ISSUER\nJWT_ALGO=$JWT_ALGO\nJWT_AUDIENCE=$JWT_AUDIENCE\nJWT_PRIVATE_KEY=$JWT_PRIVATE_KEY\nJWT_PUBLIC_KEY=$JWT_PUBLIC_KEY\nJWT_REFRESH_EXPIRES_IN=$JWT_REFRESH_EXPIRES_IN\nJWT_REFRESH_ISSUER=$JWT_REFRESH_ISSUER\nJWT_SUBJECT=$JWT_SUBJECT\nLOGS_DIR=$LOGS_DIR\nLOGS_FORMAT=$LOGS_FORMAT\nMAX_ATTEMPTS=$MAX_ATTEMPTS\nMESSAGE_LIMIT=$MESSAGE_LIMIT\nMOBILE_DIGITS=$MOBILE_DIGITS\nOTP_DIGIT=$OTP_DIGIT\nOTP_EXPIRE=$OTP_EXPIRE\nOTP_MAX=$OTP_MAX\nOTP_MESSAGE=$OTP_MESSAGE\nOTP_RETRY=$OTP_RETRY\nPASSPHRASE=$PASSPHRASE\nPREFIX_CODE=$PREFIX_CODE\nPREFIX_ERROR_CODE_ERROR=$PREFIX_ERROR_CODE_ERROR\nPREFIX_ERROR_CODE_FAIL=$PREFIX_ERROR_CODE_FAIL\nSMS_PORT=$SMS_PORT\nSUFFIX=$SUFFIX\nTIMEOUT=$TIMEOUT" > .env
+
+after_success:
+  - docker build -t jrblando/authentication-service:latest -f ./dockerfiles/auth.Dockerfile .
+  - docker build -t jrblando/nginx-router:latest -f ./dockerfiles/router.Dockerfile .
+  - docker build -t jrblando/vendor-sms-service:latest -f ./dockerfiles/sms.Dockerfile .
+  - docker build -t jrblando/custom-redis-server:latest -f ./dockerfiles/redis.Dockerfile .
+
+  # Log in to docker cli
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+  # Take those images and push them to docker hub
+  - docker push jrblando/authentication-service:latest
+  - docker push jrblando/nginx-router:latest
+  - docker push jrblando/vendor-sms-service:latest
+  - docker push jrblando/custom-redis-server:latest

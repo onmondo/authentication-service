@@ -1,4 +1,6 @@
 ## Build Authentication Service
+### Copy env files and build all containers
+```sudo ./build.sh```
 ### Build all containers, this will run the required server and performs unit testing
 ```sudo docker-compose up --build```
 ### Build using docker-compose CLI
@@ -28,3 +30,8 @@
 ```mocha ./__test__ --recursive```
 ### Alternatively you can run test with the source file
 ```mocha './services/**/*.test.js'```
+
+## Possible improvements
+- make redis connection more robust
+- make redis connection pool that can handle multiple request (1M request)
+- change lib for request to other alternative http request lib (axios)

@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./dockerfiles/router.Dockerfile
     ports:
-      - '3002:80'
+      - '3004:80'
   redis-server:
     build:
       context: .

@@ -1,8 +1,7 @@
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const catchAsyncError = require('@utils/catchAsyncError');
 const {sendSMSValidation} = require('../validationSchema');
-const ServiceError = require('../../../utils/ServiceError');
+const ServiceError = require('@utils/ServiceError');
 const {postRequest} = require('../methods');
-// const {postRequest} = require('../../../utils/sendRequest');
 const isEmpty = require('lodash/isEmpty');
 const request = require('requestretry');
 
@@ -47,7 +46,7 @@ const sendSMS = catchAsyncError(async (req, res, next) => {
     status: 'success',
     error: 0,
     data: isEmpty(sendSMSResponse) ? {} : JSON.parse(sendSMSResponse),
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });
 });
 

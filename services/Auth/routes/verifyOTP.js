@@ -1,7 +1,7 @@
 const isEmpty = require('lodash/isEmpty');
 const morgan = require('morgan');
-const dbClient = require('../../../utils/dbConnection');
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const dbClient = require('@utils/dbConnection');
+const catchAsyncError = require('@utils/catchAsyncError');
 const {
   zcountMembers,
   zaddMember,
@@ -10,7 +10,7 @@ const {
   deleteKeys,
   getTTL
 } = require('../methods');
-const ServiceError = require('../../../utils/ServiceError');
+const ServiceError = require('@utils/ServiceError');
 const otpRetry = process.env.OTP_RETRY;
 const otpMax = parseInt(process.env.OTP_MAX);
 

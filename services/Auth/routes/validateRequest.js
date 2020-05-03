@@ -1,6 +1,6 @@
 const isEmpty = require('lodash/isEmpty');
-const catchAsyncError = require('../../../utils/catchAsyncError');
-const ServiceError = require('../../../utils/ServiceError')
+const catchAsyncError = require('@utils/catchAsyncError');
+const ServiceError = require('@utils/ServiceError')
 
 const validateRequest = (validationSchema) => {
   return catchAsyncError(async (req, _res, next) => {

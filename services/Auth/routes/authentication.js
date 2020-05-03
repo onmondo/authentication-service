@@ -2,9 +2,9 @@ const jwt = require('jsonwebtoken');
 const fs = require('fs');
 const {promisify} = require('util');
 const morgan = require('morgan');
-const SignTokenOption = require('../../../utils/SignTokenOption');
-const ServiceError = require('../../../utils/ServiceError');
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const SignTokenOption = require('@utils/SignTokenOption');
+const ServiceError = require('@utils/ServiceError');
+const catchAsyncError = require('@utils/catchAsyncError');
 
 const PRIVATE_KEY = process.env.JWT_PRIVATE_KEY;
 const PUBLIC_KEY = process.env.JWT_PUBLIC_KEY;
@@ -46,7 +46,7 @@ const signToken = catchAsyncError(async(req, res, _next) => {
       access_token: accessToken,
       refresh_token: refreshToken
     },
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });
 });
 
@@ -112,7 +112,7 @@ const verifyAccessToken = catchAsyncError(async (req, res, next) => {
     status: 'success',
     error: 0,
     data: {decodedAccess},
-    owner_link: req.originalUrl
+    self: req.originalUrl
   });  
 });
 

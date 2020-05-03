@@ -1,9 +1,9 @@
 const isEmpty = require('lodash/isEmpty');
 const morgan = require('morgan');
-const dbClient = require('../../../utils/dbConnection');
-const catchAsyncError = require('../../../utils/catchAsyncError');
+const dbClient = require('@utils/dbConnection');
+const catchAsyncError = require('@utils/catchAsyncError');
 const {getKey, deleteKeys} = require('../methods');
-const ServiceError = require('../../../utils/ServiceError');
+const ServiceError = require('@utils/ServiceError');
 
 const resendOTP = catchAsyncError(async (req, _res, next) => {
 
