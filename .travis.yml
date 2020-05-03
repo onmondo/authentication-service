@@ -29,4 +29,4 @@ after_success:
   - docker push jrblando/vendor-sms-service:latest
   - docker push jrblando/custom-redis-server:latest
 
-  - git rm -r ./config
+  # - git rm -r ./config
