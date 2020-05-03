@@ -10,6 +10,6 @@ RUN yarn install
 COPY ./common/. ./common/.
 COPY ./services/SMS/. ./services/SMS/.
 COPY ./utils/. ./utils/.
-COPY ./env/.config.sms.env ./config.env
+COPY .env ./config.env
 
 CMD ["npm", "run", "start:sms"]

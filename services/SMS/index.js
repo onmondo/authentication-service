@@ -22,7 +22,7 @@ app.all('*', (req, _res, next) => {
 
 app.use(errorHandler);
 
-const port = process.env.PORT
+const port = process.env.SMS_PORT
 
 app.listen(port, () => {
   console.log(`SMS Service running at port ${port}`);

@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-cp -a ./config/. ./env/
+cat ./config/.config.auth.env ./config/.config.sms.env > .env
 docker-compose up --build

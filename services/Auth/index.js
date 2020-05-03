@@ -57,7 +57,7 @@ if (cluster.isMaster) {
   
   app.use(errorHandler);
   
-  const port = process.env.PORT
+  const port = process.env.AUTH_PORT
   
   app.listen(port, () => {
     console.log(`Auth Service running at port ${port}`);
