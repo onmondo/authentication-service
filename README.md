@@ -1,4 +1,6 @@
 ## Build Authentication Service
+### Copy env files and build all containers
+```sudo ./build.sh```
 ### Build all containers, this will run the required server and performs unit testing
 ```sudo docker-compose up --build```
 ### Build using docker-compose CLI

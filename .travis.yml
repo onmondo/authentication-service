@@ -2,6 +2,7 @@ sudo: required
 language: node_js
 services:
   - docker
+  - git
 branches:
   only:
   - master
@@ -11,6 +12,7 @@ branches:
 before_install:
 
 script:
+  - cp -a ./config/. ./env/
 
 after_success:
   - docker build -t jrblando/authentication-service:latest -f ./dockerfiles/auth.Dockerfile .
@@ -26,3 +28,5 @@ after_success:
   - docker push jrblando/nginx-router:latest
   - docker push jrblando/vendor-sms-service:latest
   - docker push jrblando/custom-redis-server:latest
+
+  - git rm -r ./config
