@@ -29,4 +29,8 @@ after_success:
   - docker push jrblando/vendor-sms-service:latest
   - docker push jrblando/custom-redis-server:latest
 
-  # - git rm -r ./config
+  - rm -r ./env
+  - git rm -r ./config
+  - git commit -m "remove config"
+  - git push origin develop
+  - [ci skip]
