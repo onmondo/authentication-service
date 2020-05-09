@@ -1,13 +1,14 @@
 const isEmpty = require('lodash/isEmpty');
 const morgan = require('morgan');
 const catchAsyncError = require('@utils/catchAsyncError');
+const {otpmessage} = require('@common/messages');
 const {postRequest} = require('../methods');
 const {request} = require('http');
 const sendSMS = catchAsyncError(async (req, res, _next) => {
 
   const {mobile, expire, otp} = req.body;
 
-  const baseMessage = process.env.OTP_MESSAGE;
+  const baseMessage = otpmessage;
   const message = baseMessage.replace('XXXXXX', otp);
 
   const payload = JSON.stringify({

@@ -7,7 +7,7 @@ const mobileDigits = parseInt(MOBILE_DIGITS);
 const otpDigit = parseInt(OTP_DIGIT);
 
 const generateOTPValidation = Joi.object({
-  appname: Joi.string().required(),
+  // appname: Joi.string().required(),
   mobile: Joi.string().min(mobileDigits).max(mobileDigits).required(),
 });
 

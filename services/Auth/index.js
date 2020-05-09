@@ -21,6 +21,7 @@ if (cluster.isMaster) {
   
   // const errorHandler = require('../../common/errorHandler');
   const errorHandler = require('@common/errorHandler');
+  const {logformat} = require('@common/messages');
   const ServiceError = require('@utils/ServiceError');
   const logDirectory = process.env.LOGS_DIR;
   
@@ -32,9 +33,9 @@ if (cluster.isMaster) {
     {flags: 'a'}
   );
   
-  app.use(morgan(process.env.LOGS_FORMAT, {stream: accessLogStream}));
+  app.use(morgan(logformat, {stream: accessLogStream}));
   
-  app.use(morgan(process.env.LOGS_FORMAT))
+  app.use(morgan(logformat))
   
   const routes = require('./router');
   app.use('/api/v1/auth', routes);

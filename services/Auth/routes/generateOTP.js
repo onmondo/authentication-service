@@ -10,7 +10,7 @@ const ServiceError = require('@utils/ServiceError');
 
 const generateOTP = catchAsyncError(async (req, _res, next) => {
 
-  const {appname, mobile} = req.body;
+  const {mobile} = req.body;
 
   const otp = randomize('0', parseInt(process.env.OTP_DIGIT));
 
