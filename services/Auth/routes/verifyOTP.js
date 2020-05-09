@@ -1,6 +1,6 @@
 const isEmpty = require('lodash/isEmpty');
 const morgan = require('morgan');
-const dbClient = require('@utils/dbConnection');
+const dbClient = require('@utils/redis');
 const catchAsyncError = require('@utils/catchAsyncError');
 const {
   zcountMembers,
@@ -71,7 +71,7 @@ const verifyOTP = catchAsyncError(async (req, res, next) => {
   if (otp !== existingOTP) {
     // zadd here
     const timestamp = Date.now();
-    const countOTPEntry = await zaddMember(dbClient, {
+    await zaddMember(dbClient, {
       keySet: `otp:${mobile}`,
       timestamp,
       value: `${otpEntryCount}|${otp}|${timestamp}`});
