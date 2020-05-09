@@ -7,10 +7,14 @@ services:
       dockerfile: ./dockerfiles/router.Dockerfile
     ports:
       - '3004:80'
+  # redis-server:
+  #   build:
+  #     context: .
+  #     dockerfile: ./dockerfiles/redis.Dockerfile
   redis-server:
     build:
       context: .
-      dockerfile: ./dockerfiles/redis.Dockerfile
+      dockerfile: ./dockerfiles/redis.local.Dockerfile      
   auth-service:
     build: 
       context: .

@@ -3,3 +3,7 @@ package-lock.json
 yarn.lock
 yarn-error.log
 *.env
+
+# local
+.redis.local.conf
+.default.redis.conf
