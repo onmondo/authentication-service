@@ -1,7 +1,7 @@
 const isEmpty = require('lodash/isEmpty');
 const randomize = require('randomatic');
 const morgan = require('morgan');
-const dbClient = require('@utils/dbConnection');
+const dbClient = require('@utils/redis');
 const catchAsyncError = require('@utils/catchAsyncError');
 const {setKeyAndExpire, getKey, getTTL} = require('../methods');
 // const {postRequest} = require('../../../utils/sendRequest');

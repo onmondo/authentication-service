@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
-cat ./config/.config.auth.env ./config/.config.sms.env > .env
-docker-compose up --build
+docker-compose down
+rm .env
+cat ./config/.auth.env ./config/.sms.env ./config/.users.env> .env
+docker-compose up --build --detach
