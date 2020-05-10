@@ -12,6 +12,7 @@
     "start:auth": "node -r dotenv/config ./services/Auth/index.js dotenv_config_path=./config.env",
     "start:sms": "node -r dotenv/config ./services/SMS/index.js dotenv_config_path=./config.env",
     "start:users": "node -r dotenv/config ./services/Users/index.js dotenv_config_path=./config.env",
+    "seed:test-users": "node -r dotenv/config ./services/Users/seeder.js dotenv_config_path=.env",
     "test:auth": "mocha --require node_modules/dotenv/config dotenv_config_path=./config.env ./__test__ --recursive --file ./__test__/tdd-integration-test/mocha-setup.js"
   },
   "repository": {
@@ -40,6 +41,7 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
+    "faker": "^4.1.0",
     "regenerator-runtime": "^0.13.5",
     "supertest": "^4.0.2"
   }
