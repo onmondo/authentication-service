@@ -55,5 +55,4 @@ const generateFakeUser = (name) => {
   }
 }
 
-// generateUsers();
 module.exports = generateUsers;

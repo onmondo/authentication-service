@@ -12,8 +12,8 @@ if (process.env.STAGE === 'local') {
 const app = express();
 app.use(express.json());
 
-// const routes = require('./router');
-// app.use('/api/v1/users', routes); // must use a load balancer to handle versioning (kubernetes)
+const routes = require('./router');
+app.use('/api/v1/users', routes); // must use a load balancer to handle versioning (kubernetes)
 
 // operational error handler for non-existing route
 app.all('*', (req, _res, next) => {
