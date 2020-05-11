@@ -13,4 +13,4 @@ COPY ./services/Users/. ./services/Users/.
 COPY ./utils/. ./utils/.
 COPY .env ./config.env
 
-CMD ["yarn", "run", "start:auth"]
+CMD ["yarn", "run", "start:users"]

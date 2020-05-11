@@ -5,14 +5,17 @@
   "main": "index.js",
   "_moduleAliases": {
     "@common": "./common",
-    "@utils": "./utils"
+    "@utils": "./utils",
+    "@seed": "./seed",
+    "@services": "./services"
   },
   "scripts": {
     "start:dev-auth": "nodemon ./services/Auth/index.js",
     "start:auth": "node -r dotenv/config ./services/Auth/index.js dotenv_config_path=./config.env",
     "start:sms": "node -r dotenv/config ./services/SMS/index.js dotenv_config_path=./config.env",
     "start:users": "node -r dotenv/config ./services/Users/index.js dotenv_config_path=./config.env",
-    "seed:test-users": "node -r dotenv/config ./services/Users/seeder.js dotenv_config_path=.env",
+    "seed:users": "node -r dotenv/config ./server/MongoDB/index.js dotenv_config_path=.env",
+    "seed:test-users": "node -r dotenv/config ./seed/Users/seeder.js dotenv_config_path=.env",
     "test:auth": "mocha --require node_modules/dotenv/config dotenv_config_path=./config.env ./__test__ --recursive --file ./__test__/tdd-integration-test/mocha-setup.js"
   },
   "repository": {
@@ -32,6 +35,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "module-alias": "^2.2.2",
+    "mongodb": "^3.5.7",
     "morgan": "^1.10.0",
     "randomatic": "^3.1.1",
     "redis": "^3.0.2",

@@ -13,7 +13,7 @@ const generateUsers = () => {
       return generateFakeUser({firstname, lastname});
     });
 
-  // console.log('users', users);
+  console.log('users', users);
 
   return users;
 }
@@ -36,7 +36,7 @@ const generateSocialMediaAccounts = (name) => {
       }
     });
 
-  // console.log('accounts', accounts);
+  console.log('accounts', accounts);
 
   return accounts;
 }

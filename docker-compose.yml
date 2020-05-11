@@ -14,7 +14,11 @@ services:
   redis-server:
     build:
       context: .
-      dockerfile: ./dockerfiles/redis.local.Dockerfile      
+      dockerfile: ./dockerfiles/redis.local.Dockerfile
+  mongodb-server:
+    build:
+      context: .
+      dockerfile: ./dockerfiles/mongodb.local.Dockerfile
   auth-service:
     build: 
       context: .
@@ -30,4 +34,10 @@ services:
   sms-service:
     build: 
       context: .
-      dockerfile: ./dockerfiles/sms.Dockerfile    
+      dockerfile: ./dockerfiles/sms.Dockerfile
+  users-service:
+    build: 
+      context: .
+      dockerfile: ./dockerfiles/users.Dockerfile
+    depends_on:
+      - mongodb-server
