@@ -1,9 +1,11 @@
 const Router = require('express').Router();
 
-const getUsers = require('./routes/getUsers');
+const getUsers = require('./routes/GetUserRequest');
+const validateRequest = require('./routes/ValidateRequest');
+// const insertUser = require('');
 
-// const {sendSMSValidation} = require('./validationSchema');
+Router.get('/', getUsers);
 
-Router.get('/users', getUsers);
+Router.post('/', validateRequest);
 
 module.exports = Router;
